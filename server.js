@@ -4,9 +4,11 @@ var express    = require("express"),
     mongoose   = require("mongoose");
     // Course     = require("./models/course")
     
-mongoose.connect("mongodb://localhost/coursedetails");
+//mongoose.connect("mongodb://localhost/coursedetails");
 app.set("view engine", "ejs");
-app.use(express.static("public"));
+app.set('views', __dirname + '/server/views');
+app.use(express.static(__dirname + '/public'));
+app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 var courseSchema = new mongoose.Schema({
@@ -34,7 +36,7 @@ app.post("/courses", function(req, res){
 });
 
 app.get("/", function(req, res){
-   res.render("new"); 
+   res.render("index"); 
 });
 
 

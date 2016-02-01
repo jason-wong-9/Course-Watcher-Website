@@ -1,17 +1,28 @@
 {
   "name": "coursewatcher",
   "version": "1.0.0",
-  "description": "",
+  "description": "Submit your information about the course and we will notify you when your course opens up seats!",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "author": "",
+  "author": "Jason Wong",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.14.1",
+    "bower": "^1.7.7",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "mongoose": "^4.3.3"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jason-wong-9/Course-Watcher-Website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jason-wong-9/Course-Watcher-Website/issues"
+  },
+  "homepage": "https://github.com/jason-wong-9/Course-Watcher-Website#readme"
 }
