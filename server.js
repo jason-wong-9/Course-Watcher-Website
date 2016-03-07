@@ -4,10 +4,17 @@ var morgan = require('morgan');
 var config = require('./config')
 var mongoose   = require('mongoose');
     // Course     = require("./models/course")
-    
-//mongoose.connect("mongodb://localhost/coursedetails");
-
 var app = express();
+
+mongoose.connect(config.database, function(err){
+    if(err){
+        console.log(err);
+    } else {
+        console.log("Connected to the database");
+    }
+});
+
+
 app.set('views', __dirname + '/server/views');
 
 app.use(bodyParser.urlencoded({extended: true}));
