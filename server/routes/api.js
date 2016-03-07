@@ -90,5 +90,7 @@ module.exports = function(app, express) {
         }
     });
 
+    // Would only work if we have token
+
     return api;
 }
