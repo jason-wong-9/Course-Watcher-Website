@@ -29,9 +29,6 @@ To install and run, download repository and run
 
     ![pullrequest](https://cloud.githubusercontent.com/assets/7104017/12533289/70798ff4-c1e8-11e5-8c6b-c5916de487ee.png)
 
-##Contributers
-[Jason Wong](http://jasonkcwong.com)
-
 
 ##License
 Licensed under the ISC License.
