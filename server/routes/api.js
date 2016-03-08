@@ -1,5 +1,5 @@
 var User = require('../models/user');
-var Story = require('../models/request');
+var Request = require('../models/request');
 var config = require('../../config');
 
 var secretKey = config.secretKey;
@@ -91,6 +91,43 @@ module.exports = function(app, express) {
     });
 
     // Would only work if we have token
+
+    api.route('/')
+        .post(function(req, res){
+          var request = new Request({
+            creator: req.decoded.id,
+            sessionYear: req.body.sessionYear,
+            sumWin: req.body.sumWin,
+            department: req.body.department,
+            courseNumber: req.body.courseNumber,
+            courseSession: req.body.courseSession,
+            isRestricted: req.body.isRestricted,
+            isChecked: req.body.isChecked
+          });
+            request.save(function(err){
+              if (err) {
+                res.send(err);
+                return;
+              } else {
+                res.json({
+                  success: true,
+                  message: "New Request Created"
+                });
+              }
+            })
+          })
+
+          .get(function(req, res){
+            Request.find({ creator: req.decoded.id }, function(err, requests){
+              if (err) {
+                res.send(err);
+                return;
+              } else {
+                res.json(requests);
+              }
+            });
+          });
+
 
     return api;
 }

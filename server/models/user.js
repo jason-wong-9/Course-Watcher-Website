@@ -10,7 +10,6 @@ var UserSchema = new Schema({
    email: { type: String, trim: true, required: 'Email address is required', index: { unique: true }, match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']},
    username: { type: String, trim: true, required: 'Username is required', index: { unique: true}},
    password: { type: String, required: 'Password is required', select: false}
-   
 });
 
 UserSchema.pre('save', function(next){
