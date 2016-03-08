@@ -1,4 +1,4 @@
-# Course-Watcher-Website
+# Course Watcher
 
 A MEAN-stack web app that allows UBC Students to get notified when a seat opens in a course that is currently full. 
 
