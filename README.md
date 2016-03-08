@@ -8,7 +8,7 @@ Hosted at []()
 To install and run, download repository and run 
 
 ##Technologies Used
-**Frontend:** HTML5, CSS3, Angular.JS, Google Material Design, JavasSript, jQuery
+**Frontend:** HTML5, CSS3, Angular.JS, Google Material Design, JavaScript, jQuery
 
 **Backend:** Node.js, MongoDB, Express.js
 
