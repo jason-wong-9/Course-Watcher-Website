@@ -8,9 +8,9 @@ Hosted at []()
 To install and run, download repository and run 
 
 ##Technologies Used
-**Frontend:** HTML5, CSS3, Angular.JS, Google Material Design, Javascript, jQuery
+**Frontend:** HTML5, CSS3, Angular.JS, Google Material Design, JavasSript, jQuery
 
-**Backend:** Node.JS, MongoDB, Express.js, Mongoose 
+**Backend:** Node.js, MongoDB, Express.js
 
 ##Contribute
 1. **Fork and clone repository**: Fork and clone the repository to your own profile.
