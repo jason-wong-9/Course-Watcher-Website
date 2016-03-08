@@ -20,7 +20,7 @@ body {
     justify-content: center;
     align-items: center;
     z-index: -1 !important;
-    background-image: url(/public/app/img/ubc.jpg);
+    background-image: url(/app/img/ubc.jpg);
 }
 
 #nav-bar-logo {
