@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var config = require('./config')
 var mongoose   = require('mongoose');
-    // Course     = require("./models/course")
+var update = require('./update');
 var app = express();
 
 mongoose.connect(config.database, function(err){
@@ -23,18 +23,14 @@ app.use(morgan('dev'));
 app.use(express.static(__dirname + '/public'));
 
 
-// var minutes = 0.1, the_interval = minutes * 60 * 1000;
-// setInterval(function() {
-//   console.log("I am doing my 5 minutes check");
-//   // do your stuff here
-// }, the_interval);
-
 var api = require('./server/routes/api')(app, express);
 app.use('/api', api);
 
 app.get('*', function(req, res){
    res.sendFile(__dirname + '/public/app/views/index.html'); 
 });
+
+update.run();
 
 var port = 8080;
 if (!config.dev){
