@@ -28,12 +28,12 @@ var runEveryFiveMinute = function() {
 					var courseSession = request.courseSession;
 					var isRestricted = request.isRestricted;
 					var url = "https://courses.students.ubc.ca/cs/main?sessyr=" + sessionYear
-                          + "&sesscd=" + sumwin.substring(0, 1)
-                          + "&pname=subjarea&tname=subjareas&req=5&dept=" + dept
+                          + "&sesscd=" + sumWin.substring(0, 1)
+                          + "&pname=subjarea&tname=subjareas&req=5&dept=" + department
                           + "&course=" + courseNumber + "&section=" + courseSession;
                     
-
-	            	request.isChecked = true;
+                    
+	            	//request.isChecked = true;
 	            	request.save();
 	            });
 	        }
