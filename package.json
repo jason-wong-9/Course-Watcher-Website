@@ -16,7 +16,8 @@
     "express": "^4.13.3",
     "jsonwebtoken": "^5.7.0",
     "mongoose": "^4.3.3",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "request": "^2.69.0"
   },
   "devDependencies": {},
   "repository": {
