@@ -11,7 +11,7 @@ var RequestSchema = new Schema({
 	courseNumber: { type: String, required: 'Course Number is required'},
 	courseSession: { type: String, required: 'Course Session is required'},
 	isRestricted: { type: Boolean, required: 'isRestricted is required'},
-	isChecked: { type: Boolean, required: 'isChecked is required'}
+	isChecked: { type: Boolean, default: false }
 });
 
 module.exports = mongoose.model('Request', RequestSchema);

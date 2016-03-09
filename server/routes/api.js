@@ -101,8 +101,7 @@ module.exports = function(app, express) {
             department: req.body.department,
             courseNumber: req.body.courseNumber,
             courseSession: req.body.courseSession,
-            isRestricted: req.body.isRestricted,
-            isChecked: req.body.isChecked
+            isRestricted: req.body.isRestricted
           });
             request.save(function(err){
               if (err) {

@@ -5,13 +5,19 @@ var runEveryFiveMinute = function() {
 	setInterval(function() {
 	  	console.log("I am doing my 5 minutes check");
 	  	// do your stuff here
-	  	Request.find({}, function(err, requests){
-        if (err) {
-   	        res.send(err);
-            return;
-            } else {
-                console.log(requests);
-            }
+	  	
+	  	Request.find({ isChecked: false }, function(err, requests){
+	        if (err) {
+	   	        res.send(err);
+	            return;
+	        } else {
+	  			console.log(requests);
+	  			requests.forEach(function (request){
+
+	            	request.isChecked = true;
+	            	request.save();
+	            });
+	        }
         });
 	}, the_interval);
 };
