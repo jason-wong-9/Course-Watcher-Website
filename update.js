@@ -47,7 +47,7 @@ var runEveryFiveMinute = function() {
                                             //send email
                                             //delete parse row
                                             
-                                            retrieveUser(request.creator);
+                                            sendEmail(request);
 
                                         }
                                     }
@@ -65,8 +65,7 @@ var runEveryFiveMinute = function() {
                                         if (seatsRemaining > 0){
                                             //send email
                                             //delete parse row
-                                            retrieveUser(request.creator);
-
+                                            sendEmail(email, request);
 
                                         }
                                     }
@@ -83,17 +82,43 @@ var runEveryFiveMinute = function() {
 	}, the_interval);
 };
 
-var retrieveUser = function(id){
+var retrieveEmail = function(id){
 	console.log(id);
 	User.findOne({ _id: id })
 		.select('name email username password').exec(function(err, user){
 			if (err){
 				console.log(err);
-				return;
+				return null;
 			} else {
-				console.log(user.email);
+				return user.email;
 			}
 	});
+};
+
+var retrieveEmail = function(id, callback){
+	console.log(id);
+	User.findOne({ _id: id })
+		.select('name email username password').exec(function(err, user){
+			if (err){
+				console.log(err);
+				return;	
+			}
+			callback(user.email);
+	});
+};
+
+var callback = function(email){
+	return user.email;
+}
+
+var sendEmail = function (request){
+	retrieveEmail(request.creator, function(email){
+		console.log(email);
+		if (email != null){
+			console.log(email);
+		}
+	});
+	
 };
 
 module.exports.run = runEveryFiveMinute;
