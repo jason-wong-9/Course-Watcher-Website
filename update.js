@@ -1,6 +1,8 @@
 var User = require('./server/models/user');
 var Request = require('./server/models/request');
+var config = require('./config')
 var urlRequest = require('request');
+var nodemailer = require('nodemailer');
 
 var runEveryFiveMinute = function() {
 	var minutes = 0.1, the_interval = minutes * 60 * 1000;
@@ -65,7 +67,7 @@ var runEveryFiveMinute = function() {
                                         if (seatsRemaining > 0){
                                             //send email
                                             //delete parse row
-                                            sendEmail(email, request);
+                                            sendEmail(request);
 
                                         }
                                     }
@@ -116,6 +118,25 @@ var sendEmail = function (request){
 		console.log(email);
 		if (email != null){
 			console.log(email);
+			// create reusable transporter object using the default SMTP transport 
+			var transporter = nodemailer.createTransport('smtps://' + config.gmailUser + ':' + config.gmailPass + '@smtp.gmail.com');
+			 
+			// setup e-mail data with unicode symbols 
+			var mailOptions = {
+			    from: '"Jason 👥" <' + config.gmailUser, // sender address 
+			    to: 'jason_19960903@hotmail.com', // list of receivers 
+			    subject: 'Hello ✔', // Subject line 
+			    text: 'Hello world 🐴', // plaintext body 
+			    html: '<b>Hello world 🐴</b>' // html body 
+			};
+			 
+			// send mail with defined transport object 
+			transporter.sendMail(mailOptions, function(error, info){
+			    if(error){
+			        return console.log(error);
+			    }
+			    console.log('Message sent: ' + info.response);
+			});
 		}
 	});
 	
