@@ -47,7 +47,7 @@ var runEveryFiveMinute = function() {
                                             //send email
                                             //delete parse row
                                             
-
+                                            retrieveUser(request.creator);
 
                                         }
                                     }
@@ -65,7 +65,7 @@ var runEveryFiveMinute = function() {
                                         if (seatsRemaining > 0){
                                             //send email
                                             //delete parse row
-                                            
+                                            retrieveUser(request.creator);
 
 
                                         }
@@ -76,11 +76,24 @@ var runEveryFiveMinute = function() {
 					    
 					});
 	            	//request.isChecked = true;
-	            	request.save();
+	            	//request.save();
 	            });
 	        }
         });
 	}, the_interval);
+};
+
+var retrieveUser = function(id){
+	console.log(id);
+	User.findOne({ _id: id })
+		.select('name email username password').exec(function(err, user){
+			if (err){
+				console.log(err);
+				return;
+			} else {
+				console.log(user.email);
+			}
+	});
 };
 
 module.exports.run = runEveryFiveMinute;
