@@ -35,6 +35,8 @@ var runEveryFiveMinute = function() {
                     	} else {
                     		if (response.statusCode == 200) {
 					       		//console.log(body);
+
+
 					     
                           		if (isRestricted){
                                     var seats_re = /Total Seats Remaining:<\/td><td align=left><strong>\d+/
@@ -49,7 +51,7 @@ var runEveryFiveMinute = function() {
                                             //send email
                                             //delete parse row
                                             
-                                            sendEmail(request);
+                                            sendEmail(request, seatsRemaining);
 
                                         }
                                     }
@@ -67,7 +69,7 @@ var runEveryFiveMinute = function() {
                                         if (seatsRemaining > 0){
                                             //send email
                                             //delete parse row
-                                            sendEmail(request);
+                                            sendEmail(request, seatsRemaining);
 
                                         }
                                     }
@@ -76,8 +78,7 @@ var runEveryFiveMinute = function() {
                     	}
 					    
 					});
-	            	//request.isChecked = true;
-	            	//request.save();
+	            	
 	            });
 	        }
         });
@@ -113,7 +114,7 @@ var callback = function(email){
 	return user.email;
 }
 
-var sendEmail = function (request){
+var sendEmail = function (request, seatsRemaining){
 	retrieveEmail(request.creator, function(email){
 		console.log(email);
 		if (email != null){
@@ -121,13 +122,16 @@ var sendEmail = function (request){
 			// create reusable transporter object using the default SMTP transport 
 			var transporter = nodemailer.createTransport('smtps://' + config.gmailUser + ':' + config.gmailPass + '@smtp.gmail.com');
 			 
+			var htmlBody = 'Your course ' + request.department + request.courseNumber + ' ' + request.courseSession + ' currently has ' + seatsRemaining + ' seats remaining.';
+
+			console.log(htmlBody);
 			// setup e-mail data with unicode symbols 
 			var mailOptions = {
 			    from: '"Jason 👥" <' + config.gmailUser, // sender address 
 			    to: 'jason_19960903@hotmail.com', // list of receivers 
 			    subject: 'Hello ✔', // Subject line 
 			    text: 'Hello world 🐴', // plaintext body 
-			    html: '<b>Hello world 🐴</b>' // html body 
+			    html: '<b>' + htmlBody + '</b>' // html body 
 			};
 			 
 			// send mail with defined transport object 
@@ -136,8 +140,11 @@ var sendEmail = function (request){
 			        return console.log(error);
 			    }
 			    console.log('Message sent: ' + info.response);
+			    request.isChecked = true;
+	            request.save();
 			});
 		}
+
 	});
 	
 };
