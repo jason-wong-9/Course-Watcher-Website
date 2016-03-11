@@ -47,14 +47,12 @@ var runEveryFiveMinute = function() {
                                     if (onlyNumberOut != null){
                                         var seatsRemaining = String(onlyNumberOut);
                                         console.log(seatsRemaining);
-                                        if (seatsRemaining > 0){
-                                            //send email
-                                            //delete parse row
+                                        if (seatsRemaining > 0){}
                                             
                                             sendEmail(request, seatsRemaining);
 
                                         }
-                                    }
+                        
 
                           		} else {
                           		    var seats_re = /General Seats Remaining:<\/td><td align=left><strong>+\d+/
@@ -67,8 +65,7 @@ var runEveryFiveMinute = function() {
                                         var seatsRemaining = String(onlyNumberOut);
                                         console.log(seatsRemaining);
                                         if (seatsRemaining > 0){
-                                            //send email
-                                            //delete parse row
+                                            
                                             sendEmail(request, seatsRemaining);
 
                                         }
@@ -127,10 +124,9 @@ var sendEmail = function (request, seatsRemaining){
 			console.log(htmlBody);
 			// setup e-mail data with unicode symbols 
 			var mailOptions = {
-			    from: '"Jason 👥" <' + config.gmailUser, // sender address 
+			    from: '"CourseWatcher Admin 👥" <' + config.gmailUser, // sender address 
 			    to: 'jason_19960903@hotmail.com', // list of receivers 
 			    subject: 'Hello ✔', // Subject line 
-			    text: 'Hello world 🐴', // plaintext body 
 			    html: '<b>' + htmlBody + '</b>' // html body 
 			};
 			 

@@ -127,6 +127,25 @@ module.exports = function(app, express) {
             });
           });
 
+    api.route('/requests/:request_id')
+          .delete(function(req, res){
+            
+            Request.remove({
+              _id: req.params.request_id
+            }, function(err, request){
+              if (err){
+                res.send(err);
+              } else {
+                res.json({ 
+                  success: true,
+                  message: "Request deleted"
+                });
+              }
+
+            });
+          });
+
+
 
     return api;
 }
