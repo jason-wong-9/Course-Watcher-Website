@@ -39,6 +39,7 @@ var runEveryFiveMinute = function() {
 
 					     
                           		if (isRestricted){
+                          			console.log("isRestricted");
                                     var seats_re = /Total Seats Remaining:<\/td><td align=left><strong>\d+/
                                     var seatsOut = seats_re.exec(body);
 
@@ -55,6 +56,7 @@ var runEveryFiveMinute = function() {
                         
 
                           		} else {
+                          			console.log("isNotRestricted");
                           		    var seats_re = /General Seats Remaining:<\/td><td align=left><strong>+\d+/
                           		    var seatsOut = seats_re.exec(body);
 
@@ -125,8 +127,8 @@ var sendEmail = function (request, seatsRemaining){
 			// setup e-mail data with unicode symbols 
 			var mailOptions = {
 			    from: '"CourseWatcher Admin 👥" <' + config.gmailUser, // sender address 
-			    to: 'jason_19960903@hotmail.com', // list of receivers 
-			    subject: 'Hello ✔', // Subject line 
+			    to: email, // list of receivers 
+			    subject: 'Course Notification for ' + request.department + request.courseNumber + ' ' + request.courseSession, // Subject line 
 			    html: '<b>' + htmlBody + '</b>' // html body 
 			};
 			 
