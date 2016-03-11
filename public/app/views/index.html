@@ -5,18 +5,27 @@
     <meta charset="UTF-8">
     <title>Course Watcher</title>
 
-
-
     <!-- Imports-->
 
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <!--Google Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
+
     <!--index.css-->
     <link rel="stylesheet" href="/app/css/index.css">
 
+
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
+    <!--index.js-->
+    <script type="text/javascript" src="/app/js/index.js"></script>
 
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -27,53 +36,43 @@
 
 <body>
 
-    <!--index.js-->
-    <script type="text/javascript" src="/app/js/index.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <div class="navbar-fixed">
+        <nav class="nav green darken-2">
+            <div class="nav-wrapper">
+                <a id="nav-bar-logo" href="#" class="brand-logo"><i class="fa fa-graduation-cap icon"></i> CW</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="">Login</a></li>
+                    <li><a href="">Sign Up</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
 
-    <!--Google Fonts-->
-    <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
 
 
-    <img src="/app/img/ubc.jpg" class="background-image">
-
+    
 
     <div id="content">
 
         <div id="landing-page">
 
+            <img src="/app/img/ubc.jpg" class="background-image">
 
-
-            <div class="navbar-fixed">
-                <nav class="nav green darken-2">
-                    <div class="nav-wrapper">
-                        <a id="nav-bar-logo" href="#!" class="brand-logo">
-                            <i class="fa fa-graduation-cap"></i> CW
-                        </a>
-                        <ul class="right hide-on-small-and-down">
-                            <li><a class="navbar-button" href="">Login</a></li>
-                            <li><a class="navbar-button" href="">Sign Up</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
 
             <div id="login-box" class="center">
 
-                <div id="login-page" class="container">
+               
 
 
-                    <h3 id="landing-headline"> Course Watcher</h3>
+                <h3 id="landing-headline"> Course Watcher</h3>
 
-                    <a class="waves-effect waves-light btn-large black homepage-buttons button-text"> LOGIN </a>
-                    <br>
-                    <br>
-                    <br>
-                    <a class="waves-effect waves-light btn-large black  homepage-buttons button-text"> SIGNUP </a>
+                <a class="waves-effect waves-light btn-large black homepage-buttons button-text"> LOGIN </a>
+                <br>
+                <br>
+                <br>
+                <a class="waves-effect waves-light btn-large black  homepage-buttons button-text"> SIGNUP </a>
 
-                </div>
+                
 
             </div>
 
@@ -89,6 +88,7 @@
         </div>
 
 
+<!--
         <footer class="page-footer green darken-2">
             <div class="footer-copyright">
                 <div class="container">
@@ -97,6 +97,7 @@
                 </div>
             </div>
         </footer>
+-->
 
 
     </div>

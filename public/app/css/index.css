@@ -24,7 +24,7 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    margin-top: 4.5em;
+    margin-top: 50px;
     object-fit: cover;
     opacity: 0.8;
 }
@@ -35,13 +35,17 @@ body {
 }
 
 .nav {
-    height: 5em !important;
+    height: 50px !important;
+    line-height: 50px !important;
     font-family: 'Courgette', cursive;
 }
 
+.icon {
+    height: 50px !important;
+    line-height: 50px !important;
+}
+
 #landing-page {
-    width: 100%;
-    height: 100%;
     background-position: center;
     background-size: cover;
     justify-content: center;
@@ -50,24 +54,20 @@ body {
 }
 
 #nav-bar-logo {
-    padding-left: 0.5em;
-    font-family: 'Courgette', cursive;
-    font-size: 40px;
+    padding-left: 15px;
+    font-size: 1.9rem;
 }
 
 .navbar-button {
-    font-size: 30px;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 #login-box {
     z-index: 1;
     color: azure;
     position: relative;
-    top: 50%;
-    left: 50%;
-    /* bring your own prefixes */
-    transform: translate(-50%, -50%);
-    margin-top: ;
+   
 }
 
 #landing-headline {
@@ -77,9 +77,6 @@ body {
     font-family: 'Courgette', cursive;
 }
 
-#login-page {
-    width: 60%;
-}
 
 .login-text {
     font-size: 2em !important;
