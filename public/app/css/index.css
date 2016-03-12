@@ -67,7 +67,6 @@ body {
     z-index: 1;
     color: azure;
     position: relative;
-   
 }
 
 #landing-headline {
@@ -76,7 +75,6 @@ body {
     font-size: 7em;
     font-family: 'Courgette', cursive;
 }
-
 
 .login-text {
     font-size: 2em !important;
