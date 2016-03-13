@@ -1,5 +1,5 @@
-angular.module('MyApp', ['mainCtrl', 'appRoutes']);
+angular.module('MyApp', ['mainCtrl', 'appRoutes', 'authService'])
 
-// .config(function($httpProvider){
-//     $httpProvider.interceptors.push('AuthInterceptor');
-// })
+.config(function($httpProvider){
+    $httpProvider.interceptors.push('AuthInterceptor');
+})

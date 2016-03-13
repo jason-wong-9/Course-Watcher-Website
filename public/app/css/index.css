@@ -2,8 +2,6 @@ html {
     height: 100%;
 }
 
-body {}
-
 main {
     flex: 1 0 auto;
 }
@@ -17,22 +15,7 @@ body {
     flex-direction: column;
 }
 
-.background-image {
-    z-index: -10;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    margin-top: 50px;
-    object-fit: cover;
-    opacity: 0.8;
-}
 
-#content {
-    height: 100%;
-    z-index: 1;
-}
 
 .nav {
     height: 50px !important;
@@ -45,13 +28,7 @@ body {
     line-height: 50px !important;
 }
 
-#landing-page {
-    background-position: center;
-    background-size: cover;
-    justify-content: center;
-    align-items: center;
-    z-index: 0 !important;
-}
+
 
 #nav-bar-logo {
     padding-left: 15px;
@@ -63,38 +40,6 @@ body {
     margin-bottom: 10px;
 }
 
-#login-box {
-    z-index: 1;
-    color: azure;
-    position: relative;
-}
 
-#landing-headline {
-    margin-top: 0.5em;
-    margin-bottom: 0.6em;
-    font-size: 7em;
-    font-family: 'Courgette', cursive;
-}
 
-.login-text {
-    font-size: 2em !important;
-    font-family: 'Damion', cursive;
-}
 
-.homepage-buttons {
-    width: 250px;
-    opacity: 0.8;
-}
-
-.button-text {
-    font-weight: 900;
-}
-
-.section-1 {
-    background: white;
-}
-
-.copyright {
-    font-size: 1.5em;
-    font-family: 'Courgette', cursive
-}

@@ -126,6 +126,11 @@ module.exports = function(app, express) {
               }
             });
           });
+          
+    api.get('/me', function(req, res) {
+        res.json(req.decoded);
+    });
+
 
     api.route('/requests/:request_id')
           .delete(function(req, res){

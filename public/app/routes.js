@@ -1,4 +1,4 @@
-angular.module('appRoutes', ['ngRoute'])
+angular.module('appRoutes', ['ngRoute', 'door3.css'])
 
 
 .config(function($routeProvider, $locationProvider){
@@ -6,15 +6,16 @@ angular.module('appRoutes', ['ngRoute'])
     
         .when('/', {
             templateUrl: 'app/views/partials/home.html',
+            css: 'app/css/home.css',
             controller: 'MainController',
             controllerAs: 'main'
         })
-        // .when('/login', {
-        //     templateUrl: 'app/views/pages/login.html'
-        // })
-        // .when('/signup', {
-        //     templateUrl: 'app/views/pages/signup.html'
-        // })
+        .when('/login', {
+            templateUrl: 'app/views/pages/login.html'
+        })
+        .when('/signup', {
+            templateUrl: 'app/views/pages/signup.html'
+        })
        
         .otherwise({ redirectTo : '/' })
     
