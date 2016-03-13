@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="MyApp">
 
 <head>
     <meta charset="UTF-8">
@@ -31,73 +31,38 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js"></script>
+
+
+    <script type="text/javascript" src="app/controllers/mainCtrl.js"></script>
+    
+    <script type="text/javascript" src="app/routes.js"></script> 
+    <script type="text/javascript" src="app/app.js"></script>
+
 
 </head>
 
-<body>
-
-    <div class="navbar-fixed">
-        <nav class="nav green darken-2">
-            <div class="nav-wrapper">
-                <a id="nav-bar-logo" href="#" class="brand-logo"><i class="fa fa-graduation-cap icon"></i> CW</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="">Login</a></li>
-                    <li><a href="">Sign Up</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-
-
-
-
-
-    <div id="content">
-
-        <div id="landing-page">
-
-            <img src="/app/img/ubc.jpg" class="background-image">
-
-
-            <div id="login-box" class="center">
-
-                <h3 id="landing-headline"> Course Watcher</h3>
-
-                <a href="/app/views/login.html" class="waves-effect waves-light btn-large black homepage-buttons button-text"> LOGIN </a>
-                <br>
-                <br>
-                <br>
-                <a href="/app/views/signup.html" class="waves-effect waves-light btn-large black  homepage-buttons button-text"> SIGNUP </a>
-
-
-
-            </div>
-
-        </div>
-
-
-        <div class="section-1">
-
-
-
-
-
-        </div>
-
-
-        <!--
-        <footer class="page-footer green darken-2">
-            <div class="footer-copyright">
-                <div class="container">
-                    <a class="white-text copyright">  © Created by Jason Wong </a>
-                    <a class="copyright white-text right" href="#!">Contact</a>
+<body ng-controller="MainController as main">
+    <header>
+        <div class="navbar-fixed">
+            <nav class="nav green darken-2">
+                <div class="nav-wrapper">
+                    <a id="nav-bar-logo" href="#" class="brand-logo"><i class="fa fa-graduation-cap icon"></i> CW</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="">Login</a></li>
+                        <li><a href="">Sign Up</a></li>
+                    </ul>
                 </div>
-            </div>
-        </footer>
--->
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <ng-view></ng-view>
+    </main>
 
 
-    </div>
 
 </body>
 
