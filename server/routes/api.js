@@ -9,7 +9,7 @@ var jsonwebtoken = require('jsonwebtoken');
 function generateToken (user) {
 	var token = jsonwebtoken.sign({
 		id: user._id,
-		first_name: user.first_name,
+    first_name: user.first_name,
     last_name: user.last_name,
 		email: user.email,
 		username: user.username
@@ -32,8 +32,10 @@ module.exports = function(app, express) {
 			password: req.body.password
 		});
 		var token = generateToken(user);
+    console.log(token);
 		user.save(function(err){
 			if(err){
+        console.log(err);
 				res.send(err);
 				return;
 			} else {
@@ -49,7 +51,7 @@ module.exports = function(app, express) {
 	api.post("/login", function(req, res){
         User.findOne({ 
             username: req.body.username
-        }).select('email username password').exec(function(err, user) {
+        }).select('first_name last_name email username password').exec(function(err, user) {
             if(err) throw err;
           
             if(!user) {
