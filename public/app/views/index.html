@@ -56,8 +56,10 @@
                 <div class="nav-wrapper">
                     <a id="nav-bar-logo" href="/#/" class="brand-logo"><i class="fa fa-graduation-cap icon"></i> CW</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a class="nav-item" href="/#/login">Login</a></li>
-                        <li><a class="nav-item" href="/#/signup">Register</a></li>
+                        <li><a ng-if="!main.loggedIn" class="nav-item" href="/#/login">Login</a></li>
+                        <li><a ng-if="!main.loggedIn" class="nav-item" href="/#/signup">Register</a></li>
+                        <li><a ng-if="main.loggedIn" class="nav-item" href="/#/">Hello {{ main.user.username }}</a></li>
+                        <li><a ng-if="main.loggedIn" class="nav-item" ng-click="main.doLogout()">Logout</a></li>
                     </ul>
                 </div>
             </nav>

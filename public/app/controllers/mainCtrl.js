@@ -39,6 +39,7 @@ angular.module('mainCtrl', [])
     }
     
     vm.doLogout = function() {
+        console.log('logout');
         Auth.logout();
         $location.path('/logout');
         
