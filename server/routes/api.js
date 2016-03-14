@@ -9,7 +9,8 @@ var jsonwebtoken = require('jsonwebtoken');
 function generateToken (user) {
 	var token = jsonwebtoken.sign({
 		id: user._id,
-		name: user.name,
+		first_name: user.first_name,
+    last_name: user.last_name,
 		email: user.email,
 		username: user.username
 	}, secretKey, {
@@ -24,7 +25,8 @@ module.exports = function(app, express) {
 
 	api.post('/signup', function(req, res){
 		var user = new User({
-			name: req.body.name,
+			first_name: req.body.first_name,
+      last_name: req.body.last_name,
 			email: req.body.email,
 			username: req.body.username,
 			password: req.body.password
@@ -47,7 +49,7 @@ module.exports = function(app, express) {
 	api.post("/login", function(req, res){
         User.findOne({ 
             username: req.body.username
-        }).select('name email username password').exec(function(err, user) {
+        }).select('email username password').exec(function(err, user) {
             if(err) throw err;
           
             if(!user) {

@@ -7,8 +7,26 @@
 
         <div id="login-box" class="center">
 
+            <div class="row">
+                <form class="col s12" method="post" ng-submit="login.doLogin()">
 
-            <a class="waves-effect waves-light btn-large green darken-1 homepage-buttons button-text"> LOGIN </a>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="username" name="username" type="text" class="validate" ng-model="login.loginData.username">
+                            <label for="username">Username</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password" name="password" type="password" class="validate" ng-model="login.loginData.password">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="waves-effect waves-light btn-large green darken-1 homepage-buttons button-text"> LOGIN </button>
+                  
+                </form>
+            </div>
 
 
         </div>

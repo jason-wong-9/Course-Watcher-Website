@@ -7,20 +7,49 @@
 
         <div id="login-box" class="center">
 
+            <div class="row">
+                <form class="col s12" method="post" ng-submit="">
 
-            <h3 id="landing-headline" class="green-text text-lighten-1 "> Course Watcher</h3>
+                	<div class="row">
+       					<div class="input-field col s6">
+          					<input id="first_name" type="text" class="validate">
+          					<label for="first_name">First Name</label>
+        				</div>
+        				<div class="input-field col s6">
+          					<input id="last_name" type="text" class="validate">
+          					<label for="last_name">Last Name</label>
+        				</div>
+      				</div>
 
+      				<div class="row">
+       					<div class="input-field col s12">
+          					<input id="email" type="email" class="validate">
+          					<label for="email">Email</label>
+        				</div>
+      				</div>
 
-
-
-
-
-            <a class="waves-effect waves-light btn-large black homepage-buttons button-text"> SIGN UP  </a>
-
-
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="username" name="username" type="text" ng-model="login.loginData.username">
+                            <label for="username">Username</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password" name="password" type="password" ng-model="login.loginData.password">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="waves-effect waves-light btn-large green darken-1 homepage-buttons button-text"> Register </button>
+                  
+                </form>
+            </div>
 
 
         </div>
 
     </div>
+
+
 </div>

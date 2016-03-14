@@ -6,7 +6,8 @@ var Schema = mongoose.Schema;
 
 
 var UserSchema = new Schema({
-   name: String,
+   first_name: String,
+   last_name: String,
    email: { type: String, trim: true, required: 'Email address is required', index: { unique: true }, match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']},
    username: { type: String, trim: true, required: 'Username is required', index: { unique: true}},
    password: { type: String, required: 'Password is required', select: false}
