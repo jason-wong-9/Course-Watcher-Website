@@ -11,10 +11,14 @@ angular.module('appRoutes', ['ngRoute', 'door3.css'])
             controllerAs: 'main'
         })
         .when('/login', {
-            templateUrl: 'app/views/pages/login.html'
+            templateUrl: 'app/views/partials/login.html',
+            css: 'app/css/login.css',
+            controller: 'MainController',
+            controllerAs: 'main'
         })
         .when('/signup', {
-            templateUrl: 'app/views/pages/signup.html'
+            templateUrl: 'app/views/partials/signup.html',
+            css: 'app/css/signup.css'
         })
        
         .otherwise({ redirectTo : '/' })
