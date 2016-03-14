@@ -1,3 +1,15 @@
+#content {
+    height: 100%;
+    z-index: 1;
+}
+#landing-page {
+    background-position: center;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    z-index: 0 !important;
+}
+
 .background-image {
     z-index: -10;
     position: fixed;
@@ -10,21 +22,12 @@
     opacity: 0.8;
 }
 
-#content {
-    height: 100%;
-    z-index: 1;
-}
-#landing-page {
-    background-position: center;
-    background-size: cover;
-    justify-content: center;
-    align-items: center;
-    z-index: 0 !important;
-}
+
 #login-box {
     z-index: 1;
     color: azure;
     position: relative;
+    margin-top: 5%;
 }
 
 #landing-headline {
@@ -34,16 +37,12 @@
     font-family: 'Courgette', cursive;
 }
 
-.login-text {
-    font-size: 2em !important;
-    font-family: 'Damion', cursive;
-}
 
 .homepage-buttons {
     width: 250px;
     opacity: 0.8;
-}
-
-.button-text {
     font-weight: 900;
+}
+#signup-button {
+    margin-top: 30px;
 }
