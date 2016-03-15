@@ -104,7 +104,7 @@ module.exports = function(app, express) {
             sumWin: req.body.sumWin,
             department: req.body.department,
             courseNumber: req.body.courseNumber,
-            courseSession: req.body.courseSession,
+            courseSection: req.body.courseSection,
             isRestricted: req.body.isRestricted
           });
             request.save(function(err){

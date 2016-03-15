@@ -22,7 +22,7 @@
 
 <!-- Dashboard -->
 
-<div id="content" class="dashboard" ng-if="main.loggedIn">
+<div id="content" class="dashboard" ng-if="main.loggedIn" ng-controller="RequestController as request">
 
     <ul class="collection with-header">
         <li class="collection-header"><h4>My Requests</h4></li>
@@ -32,7 +32,7 @@
             <p>First Line <br>
                 Second Line
             </p>
-            <a href="#!" class="secondary-content"><i class="material-icons edit">mode_edit</i></a>
+            <a href="#!" class="secondary-content"><i data-target="edit-modal" class="material-icons edit modal-trigger">mode_edit</i></a>
         </li>
         <li class="collection-item avatar">
             <i class="material-icons circle green">insert_chart</i>
@@ -40,7 +40,7 @@
             <p>First Line <br>
                 Second Line
             </p>
-            <a href="#!" class="secondary-content"><i class="material-icons edit">mode_edit</i></a>
+            <a href="#!" class="secondary-content"><i data-target="edit-modal"  class="material-icons edit modal-trigger">mode_edit</i></a>
         </li>
         <li class="collection-item avatar">
             <i class="material-icons circle red">play_arrow</i>
@@ -48,22 +48,18 @@
             <p>First Line <br>
                 Second Line
             </p>    
-            <a href="#!" class="secondary-content"><i class="material-icons edit">mode_edit</i></a>
+            <a href="#!" class="secondary-content"><i data-target="edit-modal" class="material-icons edit modal-trigger">mode_edit</i></a>
         </li>
     </ul>
 
     <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-        <a class="btn-floating btn-large red">
+        <a data-target="add-modal" class="btn-floating btn-large red modal-trigger">
             <i class="large material-icons">add</i>
         </a>
     </div>
 
-
-    <!-- Modal Trigger -->
-    <button data-target="modal1" class="waves-effect waves-light btn modal-trigger">Modal</button>
-
-    <!-- Modal Structure -->
-    <div id="modal1" class="modal">
+    <!-- Edit Modal -->
+    <div id="edit-modal" class="modal">
         <div class="modal-content">
             <h4>Modal Header</h4>
             <p>A bunch of text</p>
@@ -73,10 +69,66 @@
         </div>
     </div>
 
+    <!-- Add Modal -->
+    <div id="add-modal" class="modal">
+        <div class="row">
+            <form class="col s12">
+                <div class="modal-content">
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="sessionYear" type="text" class="validate">
+                            <label for="sessionYear">Year</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="sumWin" type="text" class="validate">
+                            <label for="sumWin">Summer/Winter</label>
+                        </div>
+                    </div>
+            
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <input id="department" type="text" class="validate">
+                            <label for="department">Department</label>
+                        </div>
+                        <div class="input-field col s4">
+                            <input id="courseNumber" type="text" class="validate">
+                            <label for="courseNumber">Course Number</label>
+                        </div>
+                        <div class="input-field col s4">
+                            <input id="courseSection" type="text" class="validate">
+                            <label for="courseSection">Course Section</label>
+                        </div>
+                    </div>
+                    
+                    <!-- Switch -->
+                    <div class="row">
+                        <div class="switch">
+                            <label>
+                                General
+                                <input type="checkbox">
+                                <span class="lever"></span>
+                                Restricted
+                            </label>
+                        </div>
+                    </div>
+     
+                </div>
+                <div class="modal-footer">
+
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+                    <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script>
         $(document).ready(function(){
             // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+
             $('.modal-trigger').leanModal();    
+
         });
 
     </script>

@@ -9,7 +9,7 @@ var RequestSchema = new Schema({
 	sumWin: { type: String, uppercase: true, required: 'Sum/Win is required'},
 	department: { type: String, uppercase: true, required: 'Department is required'},
 	courseNumber: { type: String, uppercase: true, required: 'Course Number is required'},
-	courseSession: { type: String, uppercase: true, required: 'Course Session is required'},
+	courseSection: { type: String, uppercase: true, required: 'Course Section is required'},
 	isRestricted: { type: Boolean, required: 'isRestricted is required'},
 	isChecked: { type: Boolean, default: false }
 });
