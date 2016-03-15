@@ -19,6 +19,11 @@ angular.module('requestCtrl', ['requestService'])
     				vm.requests.push(data);
     			});
     	};
+
+
+    	vm.isEmpty = function() {
+    		return (vm.requests == 0);
+    	};
         
 
 

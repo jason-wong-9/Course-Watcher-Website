@@ -26,30 +26,20 @@
 
     <ul class="collection with-header">
         <li class="collection-header"><h4>My Requests</h4></li>
-        <li class="collection-item avatar">
-            <i class="material-icons circle">folder</i>
-            <span class="title">Title</span>
-            <p>First Line <br>
-                Second Line
-            </p>
-            <a href="#!" class="secondary-content"><i data-target="edit-modal" class="material-icons edit modal-trigger">mode_edit</i></a>
+        <li class="collection-item" ng-if="request.isEmpty()">
+            <p class="center">Submit a new request by pressing the red button.</p>
         </li>
-        <li class="collection-item avatar">
-            <i class="material-icons circle green">insert_chart</i>
-            <span class="title">Title</span>
-            <p>First Line <br>
-                Second Line
-            </p>
-            <a href="#!" class="secondary-content"><i data-target="edit-modal"  class="material-icons edit modal-trigger">mode_edit</i></a>
-        </li>
-        <li class="collection-item avatar">
-            <i class="material-icons circle red">play_arrow</i>
-            <span class="title">Title</span>
-            <p>First Line <br>
-                Second Line
-            </p>    
-            <a href="#!" class="secondary-content"><i data-target="edit-modal" class="material-icons edit modal-trigger">mode_edit</i></a>
-        </li>
+
+        <ul ng-repeat = "request in request.requests">
+            <li class="collection-item avatar">
+                <i class="material-icons circle">folder</i>
+                <span class="title">{{ request.department + " "}} {{ request.courseNumber + " "}} {{ request.courseSection }} </span>
+                <p> {{ request.sumWin | capitalize }} {{ ", " + request.sessionYear }} <br>
+                    <time> Created at {{ request.created | amCalendar }} </time>
+                </p>
+                <a href="#!" class="secondary-content"><i data-target="edit-modal" class="material-icons edit modal-trigger">mode_edit</i></a>
+            </li>
+        </ul>
     </ul>
 
     <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
