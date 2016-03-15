@@ -1,4 +1,4 @@
-<div id="content">
+<div id="content" ng-if="!main.loggedIn">
 
     <div id="landing-page">
 
@@ -11,13 +11,75 @@
 
             <a href="/#/login" class="waves-effect waves-light btn-large black homepage-buttons"> LOGIN </a>
             <br/>
-            <a href="/#/signup" id="signup-button" class="waves-effect waves-light btn-large black homepage-buttons"> SIGNUP </a>
+            <a href="/#/signup" id="signup-button" class="waves-effect waves-light btn-large black homepage-buttons"> REGISTER </a>
 
 
         </div>
 
     </div>
 
+</div>
+
+<!-- Dashboard -->
+
+<div id="content" class="dashboard" ng-if="main.loggedIn">
+
+    <ul class="collection with-header">
+        <li class="collection-header"><h4>My Requests</h4></li>
+        <li class="collection-item avatar">
+            <i class="material-icons circle">folder</i>
+            <span class="title">Title</span>
+            <p>First Line <br>
+                Second Line
+            </p>
+            <a href="#!" class="secondary-content"><i class="material-icons edit">mode_edit</i></a>
+        </li>
+        <li class="collection-item avatar">
+            <i class="material-icons circle green">insert_chart</i>
+            <span class="title">Title</span>
+            <p>First Line <br>
+                Second Line
+            </p>
+            <a href="#!" class="secondary-content"><i class="material-icons edit">mode_edit</i></a>
+        </li>
+        <li class="collection-item avatar">
+            <i class="material-icons circle red">play_arrow</i>
+            <span class="title">Title</span>
+            <p>First Line <br>
+                Second Line
+            </p>    
+            <a href="#!" class="secondary-content"><i class="material-icons edit">mode_edit</i></a>
+        </li>
+    </ul>
+
+    <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+        <a class="btn-floating btn-large red">
+            <i class="large material-icons">add</i>
+        </a>
+    </div>
+
+
+    <!-- Modal Trigger -->
+    <button data-target="modal1" class="waves-effect waves-light btn modal-trigger">Modal</button>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal-trigger').leanModal();    
+        });
+
+    </script>
 
 
 </div>

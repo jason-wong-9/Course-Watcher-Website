@@ -6,7 +6,7 @@ angular.module('appRoutes', ['ngRoute', 'door3.css'])
     
         .when('/', {
             templateUrl: 'app/views/partials/home.html',
-            css: 'app/css/home.css',
+            css: ['app/css/home.css','app/css/dashboard.css'],
             controller: 'MainController',
             controllerAs: 'main'
         })

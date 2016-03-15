@@ -6,7 +6,7 @@ angular.module('requestService', [])
     requestFactory.create = function(requestData) {
         return $http.post('/api', requestData);
     }
-    requestFactory.allStory = function() {
+    requestFactory.allRequests = function() {
         return $http.get('/api');
     }
     
