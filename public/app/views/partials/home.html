@@ -30,14 +30,14 @@
             <p class="center">Submit a new request by pressing the red button.</p>
         </li>
 
-        <ul ng-repeat = "request in request.requests">
-            <li class="collection-item avatar">
+        <ul ng-repeat = "request in request.requests | reverse">
+            <li class="collection-item avatar" ng-class="{bggrey: request.isChecked}">
                 <i class="material-icons circle">folder</i>
                 <span class="title">{{ request.department + " "}} {{ request.courseNumber + " "}} {{ request.courseSection }} </span>
                 <p> {{ request.sumWin | capitalize }} {{ ", " + request.sessionYear }} <br>
                     <time> Created at {{ request.created | amCalendar }} </time>
                 </p>
-                <a href="#!" class="secondary-content"><i data-target="edit-modal" class="material-icons edit modal-trigger">mode_edit</i></a>
+                <a href="#!" class="secondary-content" ng-if="!request.isChecked"><i data-target="edit-modal" class="material-icons edit modal-trigger">mode_edit</i></a>
             </li>
         </ul>
     </ul>

@@ -23,10 +23,10 @@ var runEveryFiveMinute = function() {
 					var sumWin = request.sumWin;
 					var department = request.department;
 					var courseNumber = request.courseNumber;
-					var courseSession = request.courseSession;
+					var courseSection = request.courseSection;
 					var isRestricted = request.isRestricted;
 
-					var url = "https://courses.students.ubc.ca/cs/main?sessyr=" + sessionYear + "&sesscd=" + sumWin.substring(0, 1) + "&pname=subjarea&tname=subjareas&req=5&dept=" + department + "&course=" + courseNumber + "&section=" + courseSession;
+					var url = "https://courses.students.ubc.ca/cs/main?sessyr=" + sessionYear + "&sesscd=" + sumWin.substring(0, 1) + "&pname=subjarea&tname=subjareas&req=5&dept=" + department + "&course=" + courseNumber + "&section=" + courseSection;
                     console.log(url);
                     urlRequest.get(url, function (error, response, body) {
                     	if (error){
@@ -121,14 +121,14 @@ var sendEmail = function (request, seatsRemaining){
 			// create reusable transporter object using the default SMTP transport 
 			var transporter = nodemailer.createTransport('smtps://' + config.gmailUser + ':' + config.gmailPass + '@smtp.gmail.com');
 			 
-			var htmlBody = 'Your course ' + request.department + request.courseNumber + ' ' + request.courseSession + ' currently has ' + seatsRemaining + ' seats remaining.';
+			var htmlBody = 'Your course ' + request.department + request.courseNumber + ' ' + request.courseSection + ' currently has ' + seatsRemaining + ' seats remaining.';
 
 			console.log(htmlBody);
 			// setup e-mail data with unicode symbols 
 			var mailOptions = {
 			    from: '"CourseWatcher Admin 👥" <' + config.gmailUser, // sender address 
 			    to: email, // list of receivers 
-			    subject: 'Course Notification for ' + request.department + request.courseNumber + ' ' + request.courseSession, // Subject line 
+			    subject: 'Course Notification for ' + request.department + request.courseNumber + ' ' + request.courseSection, // Subject line 
 			    html: '<b>' + htmlBody + '</b>' // html body 
 			};
 			 
