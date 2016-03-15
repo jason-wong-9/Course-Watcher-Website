@@ -98,6 +98,10 @@ module.exports = function(app, express) {
 
     api.route('/')
         .post(function(req, res){
+          var isRestricted = false;
+          if (req.body.isRestricted){
+            isRestricted = req.body.isRestricted;
+          }
           var request = new Request({
             creator: req.decoded.id,
             sessionYear: req.body.sessionYear,
@@ -105,7 +109,7 @@ module.exports = function(app, express) {
             department: req.body.department,
             courseNumber: req.body.courseNumber,
             courseSection: req.body.courseSection,
-            isRestricted: req.body.isRestricted
+            isRestricted: isRestricted
           });
             request.save(function(err){
               if (err) {

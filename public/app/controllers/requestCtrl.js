@@ -10,6 +10,7 @@ angular.module('requestCtrl', ['requestService'])
 
 
     	vm.createRequest = function() {
+    		console.log(vm.requestData);
     		Request.create(vm.requestData)
     			.success(function(data) {
     				vm.storyData = '';

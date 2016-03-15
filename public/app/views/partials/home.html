@@ -62,31 +62,31 @@
     <!-- Add Modal -->
     <div id="add-modal" class="modal">
         <div class="row">
-            <form class="col s12">
+            <form class="col s12" method="post" ng-submit="request.createRequest()">
                 <div class="modal-content">
 
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="sessionYear" type="text" class="validate">
+                            <input id="sessionYear" name="sessionYear" type="text" class="validate" ng-model="request.requestData.sessionYear">
                             <label for="sessionYear">Year</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="sumWin" type="text" class="validate">
+                            <input id="sumWin" name="sumWin" type="text" class="validate" ng-model="request.requestData.sumWin">
                             <label for="sumWin">Summer/Winter</label>
                         </div>
                     </div>
             
                     <div class="row">
                         <div class="input-field col s4">
-                            <input id="department" type="text" class="validate">
+                            <input id="department" name="department" type="text" class="validate" ng-model="request.requestData.department">
                             <label for="department">Department</label>
                         </div>
                         <div class="input-field col s4">
-                            <input id="courseNumber" type="text" class="validate">
+                            <input id="courseNumber" name="courseNumber" type="text" class="validate" ng-model="request.requestData.courseNumber">
                             <label for="courseNumber">Course Number</label>
                         </div>
                         <div class="input-field col s4">
-                            <input id="courseSection" type="text" class="validate">
+                            <input id="courseSection" name="courseSection" type="text" class="validate" ng-model="request.requestData.courseSection">
                             <label for="courseSection">Course Section</label>
                         </div>
                     </div>
@@ -96,7 +96,7 @@
                         <div class="switch">
                             <label>
                                 General
-                                <input type="checkbox">
+                                <input type="checkbox" name="isRestricted" ng-model="request.requestData.isRestricted">
                                 <span class="lever"></span>
                                 Restricted
                             </label>
@@ -106,7 +106,7 @@
                 </div>
                 <div class="modal-footer">
 
-                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+                    <button type="submit" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</button>
                     <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Cancel</a>
                 </div>
             </form>
