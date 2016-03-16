@@ -5,7 +5,7 @@ var urlRequest = require('request');
 var nodemailer = require('nodemailer');
 
 var runEveryFiveMinute = function() {
-	var minutes = 0.1, the_interval = minutes * 60 * 1000;
+	var minutes = 5, the_interval = minutes * 60 * 1000;
 	setInterval(function() {
 	  	console.log("I am doing my 5 minutes check");
 	  	// do your stuff here
@@ -48,11 +48,13 @@ var runEveryFiveMinute = function() {
                                     if (onlyNumberOut != null){
                                         var seatsRemaining = String(onlyNumberOut);
                                         console.log(seatsRemaining);
-                                        if (seatsRemaining > 0){}
-                                            
-                                            sendEmail(request, seatsRemaining);
-
+                                        if (seatsRemaining > 0){
+                                        	sendEmail(request, seatsRemaining);
                                         }
+                                                 
+                                    } else {
+                                    	sendEmail(request, -1);
+                                    }
                         
 
                           		} else {
@@ -70,9 +72,13 @@ var runEveryFiveMinute = function() {
                                             
                                             sendEmail(request, seatsRemaining);
 
+                                        } else {
+                                        	sendEmail(request, -1);
                                         }
                                     }
                           		}
+					    	} else if (response.statusCode == 500) {
+					    		sendEmail(request, -1);
 					    	}
                     	}
 					    
@@ -120,9 +126,13 @@ var sendEmail = function (request, seatsRemaining){
 			console.log(email);
 			// create reusable transporter object using the default SMTP transport 
 			var transporter = nodemailer.createTransport('smtps://' + config.gmailUser + ':' + config.gmailPass + '@smtp.gmail.com');
-			 
-			var htmlBody = 'Your course ' + request.department + request.courseNumber + ' ' + request.courseSection + ' currently has ' + seatsRemaining + ' seats remaining.';
-
+			var htmlBody = '';
+			if (seatsRemaining != -1){
+				htmlBody = 'Your course ' + request.department + request.courseNumber + ' ' + request.courseSection + ' currently has ' + seatsRemaining + ' seats remaining.';
+			} else {
+				htmlBody = 'Information about ' + request.department + request.courseNumber + ' ' + request.courseSection + ' for ' + request.sumWin + ' ' + request.sessionYear + ' is invalid. Please resubmit your request with the valid information.';
+			}
+			
 			console.log(htmlBody);
 			// setup e-mail data with unicode symbols 
 			var mailOptions = {
