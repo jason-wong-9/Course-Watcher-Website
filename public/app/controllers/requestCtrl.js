@@ -23,6 +23,16 @@ angular.module('requestCtrl', ['requestService'])
 
         socketio.on('request', function(data) {
             vm.requests.push(data);
+        });
+
+        socketio.on('requestUpdate', function(data) {
+            console.log(data);
+            for (var i = 0; i < vm.requests.length; i++){
+                if (vm.requests[i]._id == data._id){
+                    vm.requests[i] = data;
+                }
+            }
+
         })
 
 

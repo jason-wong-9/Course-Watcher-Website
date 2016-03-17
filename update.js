@@ -4,8 +4,8 @@ var config = require('./config')
 var urlRequest = require('request');
 var nodemailer = require('nodemailer');
 
-var runEveryFiveMinute = function() {
-	var minutes = 5, the_interval = minutes * 60 * 1000;
+var runEveryFiveMinute = function(io) {
+	var minutes = 1, the_interval = minutes * 60 * 1000;
 	setInterval(function() {
 	  	console.log("I am doing my 5 minutes check");
 	  	// do your stuff here
@@ -49,11 +49,11 @@ var runEveryFiveMinute = function() {
                                         var seatsRemaining = String(onlyNumberOut);
                                         console.log(seatsRemaining);
                                         if (seatsRemaining > 0){
-                                        	sendEmail(request, seatsRemaining);
+                                        	sendEmail(request, seatsRemaining, io);
                                         }
                                                  
                                     } else {
-                                    	sendEmail(request, -1);
+                                    	sendEmail(request, -1, io);
                                     }
                         
 
@@ -70,11 +70,11 @@ var runEveryFiveMinute = function() {
                                         console.log(seatsRemaining);
                                         if (seatsRemaining > 0){
                                             
-                                            sendEmail(request, seatsRemaining);
+                                            sendEmail(request, seatsRemaining, io);
 
                                         }
                                     } else {
-                                    	sendEmail(request, -1);
+                                    	sendEmail(request, -1, io);
                                     }
                           		}
 					    	} else if (response.statusCode == 500) {
@@ -119,7 +119,7 @@ var callback = function(email){
 	return user.email;
 }
 
-var sendEmail = function (request, seatsRemaining){
+var sendEmail = function (request, seatsRemaining, io){
 	retrieveEmail(request.creator, function(email){
 		console.log(email);
 		if (email != null){
@@ -150,7 +150,11 @@ var sendEmail = function (request, seatsRemaining){
 			    }
 			    console.log('Message sent: ' + info.response);
 			    request.isChecked = true;
-	            request.save();
+	            request.save(function(err, newRequest){
+	       
+            		io.emit('requestUpdate', newRequest);
+              			
+	            });
 			});
 		}
 

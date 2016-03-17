@@ -33,7 +33,7 @@ app.get('*', function(req, res){
    res.sendFile(__dirname + '/public/app/views/index.html'); 
 });
 
-update.run();
+update.run(io);
 
 var port = 8080;
 if (!config.dev){
