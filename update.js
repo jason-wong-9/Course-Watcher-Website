@@ -72,9 +72,9 @@ var runEveryFiveMinute = function() {
                                             
                                             sendEmail(request, seatsRemaining);
 
-                                        } else {
-                                        	sendEmail(request, -1);
                                         }
+                                    } else {
+                                    	sendEmail(request, -1);
                                     }
                           		}
 					    	} else if (response.statusCode == 500) {

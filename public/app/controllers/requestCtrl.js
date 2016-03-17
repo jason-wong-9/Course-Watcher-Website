@@ -31,12 +31,28 @@ angular.module('requestCtrl', ['requestService'])
     	};
         
         vm.deleteRequest = function(id) {
-            //console.log(id);
-            //console.log(vm.requests);
+
             Request.delete(id)
                 .success(function(data){
                     console.log("deleted");
+                    var index = getIndex(id);
+                    deleteIndex(index);
+
                 });
+        };
+        var getIndex = function(id){
+            for (var i = 0; i < vm.requests.length; i++){
+                if (vm.requests[i]._id == id){
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        var deleteIndex = function(index){
+            if (index > -1) {
+                vm.requests.splice(index, 1);
+            }      
         }
 
         
