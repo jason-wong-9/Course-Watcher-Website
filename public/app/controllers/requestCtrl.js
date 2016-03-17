@@ -1,6 +1,6 @@
 angular.module('requestCtrl', ['requestService'])
 
-    .controller('RequestController', function(Request){
+    .controller('RequestController', function(Request, socketio){
         var vm = this;
 
         Request.allRequests()
@@ -17,9 +17,13 @@ angular.module('requestCtrl', ['requestService'])
     				
     				vm.message = data.message;
 
-    				vm.requests.push(data);
+    				// vm.requests.push(data);
     			});
     	};
+
+        socketio.on('request', function(data) {
+            vm.requests.push(data);
+        })
 
 
     	vm.isEmpty = function() {

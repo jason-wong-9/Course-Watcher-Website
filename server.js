@@ -4,7 +4,10 @@ var morgan = require('morgan');
 var config = require('./config')
 var mongoose   = require('mongoose');
 var update = require('./update');
+
 var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 mongoose.connect(config.database, function(err){
     if(err){
@@ -23,7 +26,7 @@ app.use(morgan('dev'));
 app.use(express.static(__dirname + '/public'));
 
 
-var api = require('./server/routes/api')(app, express);
+var api = require('./server/routes/api')(app, express, io);
 app.use('/api', api);
 
 app.get('*', function(req, res){
@@ -37,7 +40,7 @@ if (!config.dev){
   port = process.env.PORT; 
 }
 
-app.listen(port, function(err){
+http.listen(port, function(err){
   if (err) {
     console.log(error);
   } else {

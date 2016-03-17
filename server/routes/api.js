@@ -20,7 +20,7 @@ function generateToken (user) {
 	return token;
 }
 
-module.exports = function(app, express) {
+module.exports = function(app, express, io) {
 	var api = express.Router();
 
 	api.post('/signup', function(req, res){
@@ -111,11 +111,12 @@ module.exports = function(app, express) {
             courseSection: req.body.courseSection,
             isRestricted: isRestricted
           });
-            request.save(function(err){
+            request.save(function(err, newRequest){
               if (err) {
                 res.send(err);
                 return;
               } else {
+                io.emit('request', newRequest);
                 res.json({
                   success: true,
                   message: "New Request Created"
