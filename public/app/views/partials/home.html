@@ -33,11 +33,11 @@
         <ul ng-repeat = "request in request.requests | reverse">
             <li class="collection-item avatar" ng-class="{bggrey: request.isChecked}">
                 <i class="material-icons circle">folder</i>
-                <span class="title">{{ request.department + " "}} {{ request.courseNumber + " "}} {{ request.courseSection }} </span>
-                <p> {{ request.sumWin | capitalize }} {{ ", " + request.sessionYear }} <br>
-                    <time> Created at {{ request.created | amCalendar }} </time>
+                <span class="title">{{ request.department + " "}} {{ request.courseNumber + " "}} {{ request.courseSection }}</span>
+                <p>{{ request.sumWin | capitalize }}{{ " " + request.sessionYear }} <br>
+                    <time>Created at {{ request.created | amCalendar }}</time>
                 </p>
-                <a href="#!" class="secondary-content" ng-if="!request.isChecked"><i data-target="edit-modal" class="material-icons edit modal-trigger">mode_edit</i></a>
+                <a href="#!" class="secondary-content"><i class="fa fa-2x fa-times" style="color: red; margin-top: -20px;"></i></a>
             </li>
         </ul>
     </ul>
@@ -48,16 +48,6 @@
         </a>
     </div>
 
-    <!-- Edit Modal -->
-    <div id="edit-modal" class="modal">
-        <div class="modal-content">
-            <h4>Modal Header</h4>
-            <p>A bunch of text</p>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-        </div>
-    </div>
 
     <!-- Add Modal -->
     <div id="add-modal" class="modal">

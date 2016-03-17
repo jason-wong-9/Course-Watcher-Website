@@ -126,6 +126,7 @@ var sendEmail = function (request, seatsRemaining){
 			console.log(email);
 			// create reusable transporter object using the default SMTP transport 
 			var transporter = nodemailer.createTransport('smtps://' + config.gmailUser + ':' + config.gmailPass + '@smtp.gmail.com');
+			
 			var htmlBody = '';
 			if (seatsRemaining != -1){
 				htmlBody = 'Your course ' + request.department + request.courseNumber + ' ' + request.courseSection + ' currently has ' + seatsRemaining + ' seats remaining.';
