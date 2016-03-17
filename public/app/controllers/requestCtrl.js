@@ -26,7 +26,14 @@ angular.module('requestCtrl', ['requestService'])
     		return (vm.requests == 0);
     	};
         
-
+        vm.deleteRequest = function(id) {
+            //console.log(id);
+            //console.log(vm.requests);
+            Request.delete(id)
+                .success(function(data){
+                    console.log("deleted");
+                });
+        }
 
         
 });

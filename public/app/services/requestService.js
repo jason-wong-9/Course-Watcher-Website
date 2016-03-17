@@ -9,6 +9,10 @@ angular.module('requestService', [])
     requestFactory.allRequests = function() {
         return $http.get('/api');
     }
+
+    requestFactory.delete = function(requestId) {
+    	return $http.delete('/api/requests/' + requestId);
+    }
     
     return requestFactory;
 });

@@ -22,22 +22,22 @@
 
 <!-- Dashboard -->
 
-<div id="content" class="dashboard" ng-if="main.loggedIn" ng-controller="RequestController as request">
+<div id="content" class="dashboard" ng-if="main.loggedIn" ng-controller="RequestController as requestCtrl">
 
     <ul class="collection with-header">
         <li class="collection-header"><h4>My Requests</h4></li>
-        <li class="collection-item" ng-if="request.isEmpty()">
+        <li class="collection-item" ng-if="requestCtrl.isEmpty()">
             <p class="center">Submit a new request by pressing the red button.</p>
         </li>
 
-        <ul ng-repeat = "request in request.requests | reverse">
+        <ul ng-repeat = "request in requestCtrl.requests | reverse">
             <li class="collection-item avatar" ng-class="{bggrey: request.isChecked}">
                 <i class="material-icons circle">folder</i>
                 <span class="title">{{ request.department + " "}} {{ request.courseNumber + " "}} {{ request.courseSection }}</span>
                 <p>{{ request.sumWin | capitalize }}{{ " " + request.sessionYear }} <br>
                     <time>Created at {{ request.created | amCalendar }}</time>
                 </p>
-                <a href="#!" class="secondary-content"><i class="fa fa-2x fa-times" style="color: red; margin-top: -20px;"></i></a>
+                <a href="" ng-click="requestCtrl.deleteRequest(request._id)" class="secondary-content"><i class="fa fa-2x fa-times" style="color: red; margin-top: -20px;"></i></a>
             </li>
         </ul>
     </ul>
@@ -52,31 +52,31 @@
     <!-- Add Modal -->
     <div id="add-modal" class="modal">
         <div class="row">
-            <form class="col s12" method="post" ng-submit="request.createRequest()">
+            <form class="col s12" method="post" ng-submit="requestCtrl.createRequest()">
                 <div class="modal-content">
 
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="sessionYear" name="sessionYear" type="text" class="validate" ng-model="request.requestData.sessionYear">
+                            <input id="sessionYear" name="sessionYear" type="text" class="validate" ng-model="requestCtrl.requestData.sessionYear">
                             <label for="sessionYear">Year</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="sumWin" name="sumWin" type="text" class="validate" ng-model="request.requestData.sumWin">
+                            <input id="sumWin" name="sumWin" type="text" class="validate" ng-model="requestCtrl.requestData.sumWin">
                             <label for="sumWin">Summer/Winter</label>
                         </div>
                     </div>
             
                     <div class="row">
                         <div class="input-field col s4">
-                            <input id="department" name="department" type="text" class="validate" ng-model="request.requestData.department">
+                            <input id="department" name="department" type="text" class="validate" ng-model="requestCtrl.requestData.department">
                             <label for="department">Department</label>
                         </div>
                         <div class="input-field col s4">
-                            <input id="courseNumber" name="courseNumber" type="text" class="validate" ng-model="request.requestData.courseNumber">
+                            <input id="courseNumber" name="courseNumber" type="text" class="validate" ng-model="requestCtrl.requestData.courseNumber">
                             <label for="courseNumber">Course Number</label>
                         </div>
                         <div class="input-field col s4">
-                            <input id="courseSection" name="courseSection" type="text" class="validate" ng-model="request.requestData.courseSection">
+                            <input id="courseSection" name="courseSection" type="text" class="validate" ng-model="requestCtrl.requestData.courseSection">
                             <label for="courseSection">Course Section</label>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                         <div class="switch">
                             <label>
                                 General
-                                <input type="checkbox" name="isRestricted" ng-model="request.requestData.isRestricted">
+                                <input type="checkbox" name="isRestricted" ng-model="requestCtrl.requestData.isRestricted">
                                 <span class="lever"></span>
                                 Restricted
                             </label>
