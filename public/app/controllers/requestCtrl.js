@@ -26,20 +26,22 @@ angular.module('requestCtrl', ['requestService'])
     	};
 
         socketio.on('request', function(data) {
-            data.color = randColor();
+            console.log(data);
+
+            data.color = randColor;
             vm.requests.push(data);
         });
 
         socketio.on('requestUpdate', function(data) {
-            console.log(data);
-            data.color = randColor();
             for (var i = 0; i < vm.requests.length; i++){
                 if (vm.requests[i]._id == data._id){
+                    console.log(vm.requests[i].color);
+                    data.color = vm.requests[i].color;
                     vm.requests[i] = data;
                 }
             }
 
-        })
+        });
 
 
     	vm.isEmpty = function() {
