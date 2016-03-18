@@ -3,6 +3,7 @@ var Request = require('./server/models/request');
 var config = require('./config')
 var urlRequest = require('request');
 var nodemailer = require('nodemailer');
+var mg = require('nodemailer-mailgun-transport');
 
 var runEveryFiveMinute = function(io) {
 	var minutes = 0.1, the_interval = minutes * 60 * 1000;
@@ -90,18 +91,6 @@ var runEveryFiveMinute = function(io) {
 	}, the_interval);
 };
 
-var retrieveEmail = function(id){
-	console.log(id);
-	User.findOne({ _id: id })
-		.select('name email username password').exec(function(err, user){
-			if (err){
-				console.log(err);
-				return null;
-			} else {
-				return user.email;
-			}
-	});
-};
 
 var retrieveEmail = function(id, callback){
 	console.log(id);
@@ -125,8 +114,16 @@ var sendEmail = function (request, seatsRemaining, io){
 		if (email != null){
 			console.log(email);
 			// create reusable transporter object using the default SMTP transport 
-			var transporter = nodemailer.createTransport('smtps://' + config.gmailUser + ':' + config.gmailPass + '@smtp.gmail.com');
+			//var transporter = nodemailer.createTransport('smtps://' + config.gmailUser + ':' + config.gmailPass + '@smtp.gmail.com');
 			
+			var auth = {
+ 				auth: {
+    				api_key: config.mailgunAPI,
+    				domain: config.mailgunDomain
+  				}
+			}
+
+			var transporter = nodemailer.createTransport(mg(auth));
 			var htmlBody = '';
 			if (seatsRemaining != -1){
 				htmlBody = 'Your course ' + request.department + request.courseNumber + ' ' + request.courseSection + ' currently has ' + seatsRemaining + ' seats remaining.';
@@ -137,7 +134,7 @@ var sendEmail = function (request, seatsRemaining, io){
 			console.log(htmlBody);
 			// setup e-mail data with unicode symbols 
 			var mailOptions = {
-			    from: '"CourseWatcher Admin 👥" <' + config.gmailUser, // sender address 
+			    from: '"CourseWatcher Admin 👥" <' + config.gmailUser + ' >', // sender address 
 			    to: email, // list of receivers 
 			    subject: 'Course Notification for ' + request.department + request.courseNumber + ' ' + request.courseSection, // Subject line 
 			    html: '<b>' + htmlBody + '</b>' // html body 

@@ -28,7 +28,7 @@ angular.module('requestCtrl', ['requestService'])
         socketio.on('request', function(data) {
             console.log(data);
 
-            data.color = randColor;
+            data.color = randColor();
             vm.requests.push(data);
         });
 
