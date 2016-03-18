@@ -12,3 +12,14 @@
 	background-color: #DFDFDF !important;
 	color:#9F9F9F !important;;
 }
+.profile {
+	border-radius: 10px; 
+	font-style: normal;
+	color: #ffffff;
+	width: 50px !important;
+	height: 50px !important;
+	line-height: 50px !important;
+	font-size: 20px;
+	margin-left:5px;
+	font-family: HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Helvetica, Arial,Lucida Grande, sans-serif;
+}
