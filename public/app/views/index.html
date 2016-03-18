@@ -24,6 +24,7 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 
+
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
@@ -63,20 +64,39 @@
             <nav class="nav green darken-2">
                 <div class="nav-wrapper">
                     <a id="nav-bar-logo" href="/#/" class="brand-logo"><i class="fa fa-graduation-cap icon"></i> CW</a>
+                    <a href="/#/" data-activates="mobile-demo" class="button-collapse" style="float: right !important; margin-right: 15px;"><i class="material-icons collapse">menu</i></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a ng-if="!main.loggedIn" class="nav-item" href="/#/login">Login</a></li>
                         <li><a ng-if="!main.loggedIn" class="nav-item" href="/#/signup">Register</a></li>
                         <li><a ng-if="main.loggedIn" class="nav-item" href="/#/">Hello {{ main.user.username }}</a></li>
                         <li><a ng-if="main.loggedIn" class="nav-item" ng-click="main.doLogout()">Logout</a></li>
                     </ul>
+                    
                 </div>
+                <ul class="side-nav" id="mobile-demo">
+                        <li><a ng-if="!main.loggedIn" class="nav-item" href="/#/login">Login</a></li>
+                        <li><a ng-if="!main.loggedIn" class="nav-item" href="/#/signup">Register</a></li>
+                        <li><a ng-if="main.loggedIn" class="nav-item" href="/#/">Hello {{ main.user.username }}</a></li>
+                        <li><a ng-if="main.loggedIn" class="nav-item" ng-click="main.doLogout()">Logout</a></li>
+                    </ul>
             </nav>
         </div>
     </header>
 
+
+
     <main class="container">
         <ng-view></ng-view>
     </main>
+
+    <script>
+        $(document).ready(function(){
+            $(".button-collapse").sideNav({
+                closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+            });  
+        });
+        
+    </script>
 
 
 
