@@ -32,6 +32,7 @@ angular.module('requestCtrl', ['requestService'])
 
         socketio.on('requestUpdate', function(data) {
             console.log(data);
+            data.color = randColor();
             for (var i = 0; i < vm.requests.length; i++){
                 if (vm.requests[i]._id == data._id){
                     vm.requests[i] = data;
