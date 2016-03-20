@@ -1,4 +1,4 @@
-var express    = require('express');
+var express = require('express');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var config = require('./config')
@@ -8,6 +8,8 @@ var update = require('./update');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+
+//mongoose connection
 
 mongoose.connect(config.database, function(err){
     if(err){
