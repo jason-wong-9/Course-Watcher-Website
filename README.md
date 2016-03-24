@@ -2,7 +2,7 @@
 
 A MEAN-stack web app that allows UBC students to get notified when a seat opens in a course that is currently full. 
 
-![coursewatcher](https://cloud.githubusercontent.com/assets/11794656/13901242/395250ec-edda-11e5-8979-1c39bf7a769a.gif)
+![ http://coursewatcher.herokuapp.com](https://cloud.githubusercontent.com/assets/11794656/13901242/395250ec-edda-11e5-8979-1c39bf7a769a.gif)
 
 ##Installation and Usage
 Hosted at [http://coursewatcher.herokuapp.com](http://coursewatcher.herokuapp.com)
